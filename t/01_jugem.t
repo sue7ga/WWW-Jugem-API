@@ -8,13 +8,6 @@ my $jugem = WWW::Jugem::API->new(date => '2014/09/09');
 
 my $response = $jugem->fetch('双子座');
 
-use Data::Dumper;
-{
-   package Data::Dumper;
-   sub qquote{return shift;}
-}
-$Data::Dumper::Useperl = 1;
-
 subtest '双子座' => sub{
  isa_ok $response,'HASH';
  is_deeply $response,{
@@ -30,3 +23,5 @@ subtest '双子座' => sub{
           'sign' => '双子座'
         };
 };
+
+done_testing;
